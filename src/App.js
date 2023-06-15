@@ -4,16 +4,18 @@ function App() {
   return (
     <>
       <h1>Props Demo</h1>
-      <Messagedemo username="jyoti"/>
-      <Messagedemo username="jjj" />
-      <Messagedemo username="jyo"/>
+      <Listdemo/>
+ 
     </>
   );
 }
-function Messagedemo(props) { 
+function Listdemo() { 
+  let data = "hello universe";
   return (
     <>
-      <h1>HEllo {props.username}</h1>
+      <h1>{data}</h1>
+      <h1>{data}</h1>
+      <h1>{data}</h1>
     </>
   );
 }
