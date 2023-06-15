@@ -1,27 +1,26 @@
+import { useState } from "react";
 
 function App() {
   //attribute name can be anything
   return (
     <>
       <h1>Props Demo</h1>
-      <Listdemo/>
- 
+      <Listdemo />
     </>
   );
 }
-function Listdemo() { 
-  let data = "hello universe";
-  let list = [];
-  for (let i = 0; i < 10; i++) { 
-    list.push(data);
-  }
+function Listdemo() {
+  let [list, setlist] = useState(["delhi"]);
+  let addItemAction = () => {
+    let newlist = [...list, "mumbai"];
+    setlist(newlist);
+  };
+
   return (
     <>
-      <h1>{data}</h1>
       {/* map returnds output */}
-      {list.map((element) => element)};
-      <br></br>
-      {list.map((element )=>" hello " +element+" ")};
+      <input type="button" value="Add item" onClick={addItemAction} />
+      {list.map((element) => " hello " + element + " ")};
     </>
   );
 }
