@@ -12,15 +12,20 @@ function App() {
 function Listdemo() {
   let [list, setlist] = useState(["delhi"]);
   let addItemAction = () => {
-    let newlist = [...list, "mumbai"];
+    
+    let inputref = document.querySelector("#id1");
+    let inputvalue = inputref.value;
+    let newlist = [...list, inputvalue];
     setlist(newlist);
+    inputref.value = "";
   };
 
   return (
     <>
       {/* map returnds output */}
+      <input  type="text" placeholder="enter input" id="id1"/>
       <input type="button" value="Add item" onClick={addItemAction} />
-      {list.map((element) => " hello " + element + " ")};
+      {list.map((element) => <div>{element}</div>)};
     </>
   );
 }
