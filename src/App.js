@@ -12,11 +12,7 @@ function App() {
 function ListDemo() {
   let inputRef = useRef();
   let [list, setList] = useState(["delhi"]);
-
   let addItemAction = () => {
-    // console.log(inputRef.current);
-    // console.log(document.querySelector("#id1"));
-
     let inputValue = inputRef.current.value;
     let newList = [inputValue, ...list];
     setList(newList);
@@ -24,19 +20,18 @@ function ListDemo() {
     inputRef.current.value = "";
   };
 
+
   return (
     <>
-      <input
-        type="text"
-        id="id1"
-        ref={inputRef}
-        placeholder="Enter user input..."
-      />
-      <input type="button" value="Add New Item" onClick={addItemAction} />
-
-      {list.map((item) => (
-        <MessageDemo message={item}/>
-      ))}
+      <div className="row justify-content-center align-items-center" style={{ height: "100vh" }}>
+        <div className="col-md-12 col-sm-6">
+          <h1>Registraton App</h1>
+          <input  className="form-control"  ref={inputRef} type="text" placeholder="Enter Username" />
+          <input  className="form-control"  ref={inputRef} type="password" placeholder="EnterPassword" />
+          <input   className="form-control"  ref={inputRef} type="email" placeholder="Enter Email" />
+          <input type="button" value="Login"  onClick={addItemAction}/>
+       </div>
+     </div>
     </>
   );
 }
